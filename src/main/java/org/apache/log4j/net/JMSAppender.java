@@ -5,9 +5,9 @@
  * The ASF licenses this file to You under the Apache License, Version 2.0
  * (the "License"); you may not use this file except in compliance with
  * the License.  You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -55,12 +55,12 @@ import java.util.Properties;
    <pre>
    InitialContext jndiContext = new InitialContext();
    </pre>
-  
+
  * <p>Calling the no-argument <code>InitialContext()</code> method
  * will also work from within Enterprise Java Beans (EJBs) because it
  * is part of the EJB contract for application servers to provide each
  * bean an environment naming context (ENC).
-    
+
  * <p>In the second approach, several predetermined properties are set
  * and these properties are passed to the <code>InitialContext</code>
  * constructor to connect to the naming service provider. For example,
@@ -88,7 +88,7 @@ import java.util.Properties;
 </pre>
 
   * <p>Other JMS providers will obviously require different values.
-  * 
+  *
   * The initial JNDI context can be obtained by calling the
   * no-argument <code>InitialContext()</code> method in EJBs. Only
   * clients running in a separate JVM need to be concerned about the
@@ -188,7 +188,7 @@ public class JMSAppender extends AppenderSkeleton {
 	if(urlPkgPrefixes != null) {
 	  env.put(Context.URL_PKG_PREFIXES, urlPkgPrefixes);
 	}
-	
+
 	if(securityPrincipalName != null) {
 	  env.put(Context.SECURITY_PRINCIPAL, securityPrincipalName);
 	  if(securityCredentials != null) {
@@ -197,7 +197,7 @@ public class JMSAppender extends AppenderSkeleton {
 	    LogLog.warn("You have set SecurityPrincipalName option but not the "
 			+"SecurityCredentials. This is likely to cause problems.");
 	  }
-	}	
+	}
 	jndi = new InitialContext(env);
       } else {
 	jndi = new InitialContext();
@@ -207,8 +207,8 @@ public class JMSAppender extends AppenderSkeleton {
       topicConnectionFactory = (TopicConnectionFactory) lookup(jndi, tcfBindingName);
       LogLog.debug("About to create TopicConnection.");
       if(userName != null) {
-	topicConnection = topicConnectionFactory.createTopicConnection(userName, 
-								       password); 
+	topicConnection = topicConnectionFactory.createTopicConnection(userName,
+								       password);
       } else {
 	topicConnection = topicConnectionFactory.createTopicConnection();
       }
@@ -223,7 +223,7 @@ public class JMSAppender extends AppenderSkeleton {
 
       LogLog.debug("Creating TopicPublisher.");
       topicPublisher = topicSession.createPublisher(topic);
-      
+
       LogLog.debug("Starting TopicConnection.");
       topicConnection.start();
 
@@ -326,16 +326,16 @@ public class JMSAppender extends AppenderSkeleton {
    * meaning of this option.
    * */
   public String getInitialContextFactoryName() {
-    return initialContextFactoryName;    
+    return initialContextFactoryName;
   }
-  
+
   /**
    * Setting the <b>InitialContextFactoryName</b> method will cause
    * this <code>JMSAppender</code> instance to use the {@link
    * InitialContext#InitialContext(Hashtable)} method instead of the
    * no-argument constructor. If you set this option, you should also
    * at least set the <b>ProviderURL</b> option.
-   * 
+   *
    * <p>See also {@link #setProviderURL(String)}.
    * */
   public void setInitialContextFactoryName(String initialContextFactoryName) {
@@ -343,7 +343,7 @@ public class JMSAppender extends AppenderSkeleton {
   }
 
   public String getProviderURL() {
-    return providerURL;    
+    return providerURL;
   }
 
   public void setProviderURL(String providerURL) {
@@ -357,18 +357,18 @@ public class JMSAppender extends AppenderSkeleton {
   public void setURLPkgPrefixes(String urlPkgPrefixes ) {
     this.urlPkgPrefixes = urlPkgPrefixes;
   }
-  
+
   public String getSecurityCredentials() {
-    return securityCredentials;    
+    return securityCredentials;
   }
 
   public void setSecurityCredentials(String securityCredentials) {
     this.securityCredentials = securityCredentials;
   }
-  
-  
+
+
   public String getSecurityPrincipalName() {
-    return securityPrincipalName;    
+    return securityPrincipalName;
   }
 
   public void setSecurityPrincipalName(String securityPrincipalName) {
@@ -376,7 +376,7 @@ public class JMSAppender extends AppenderSkeleton {
   }
 
   public String getUserName() {
-    return userName;    
+    return userName;
   }
 
   /**
@@ -391,11 +391,11 @@ public class JMSAppender extends AppenderSkeleton {
   }
 
   public String getPassword() {
-    return password;    
+    return password;
   }
 
   /**
-   * The paswword to use when creating a topic session.  
+   * The paswword to use when creating a topic session.
    */
   public void setPassword(String password) {
     this.password = password;
@@ -433,8 +433,8 @@ public class JMSAppender extends AppenderSkeleton {
   protected TopicPublisher  getTopicPublisher() {
     return topicPublisher;
   }
-  
-  /** 
+
+  /**
    * The JMSAppender sends serialized events and consequently does not
    * require a layout.
    */
