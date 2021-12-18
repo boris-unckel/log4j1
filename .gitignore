@@ -6,6 +6,7 @@ target
 dist/
 tests/classes
 tests/output
+tests/temp
 # ignore eclipse files
 .project
 .classpath
