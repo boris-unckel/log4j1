@@ -4,6 +4,8 @@
 ~
 target
 dist/
+tests/classes
+tests/output
 # ignore eclipse files
 .project
 .classpath
