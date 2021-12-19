@@ -192,6 +192,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
               <tasks>
                 <delete dir="tests/output" />
                 <delete dir="tests/classes" />
+                <delete dir="tests/temp" />
               </tasks>
             </configuration>
             <goals>
@@ -203,8 +204,10 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
             <id>runAll</id>
             <configuration>
               <tasks>
+                 <echo>[localRepository] ${settings.localRepository}</echo>
+                 <echo>[m2_repo] ${m2_repo}</echo>
                  <ant dir="tests" target="runAll">
-                  <property name="m2_repo" location="${m2_repo}" />
+                  <property name="m2_repo" location="${settings.localRepository}" />
                   <property name="log4j.jar" location="target/classes" />
                   <property name="project.lib.home" location="target" />
                 </ant>
@@ -490,7 +493,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
       </activation>
       <properties>
         <tools.jar>${java.home}/../Classes/classes.jar</tools.jar>
-        <m2_repo>${user.home}/.m2/repository</m2_repo>
+        <m2_repo>${settings.localRepository}</m2_repo>
         <ntdll_target>build</ntdll_target>
       </properties>
     </profile>
@@ -501,7 +504,7 @@ target platform and specify -Dntdll_target=msbuild on the mvn command line.
       </activation>
       <properties>
         <tools.jar>${java.home}/../lib/tools.jar</tools.jar>
-        <m2_repo>${user.home}/.m2/repository</m2_repo>
+        <m2_repo>${settings.localRepository}</m2_repo>
         <ntdll_target>build</ntdll_target>
         <javadoc.opts>-Xdoclint:none</javadoc.opts>
       </properties>
