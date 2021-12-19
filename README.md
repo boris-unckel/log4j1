@@ -13,6 +13,13 @@ Non-Goals
 ========================
 Any further development. 
 
+Build instructions
+========================
+
+```mvn clean install```
+
+Standalone Ant build or other targets are not supported.
+
 Recommendation
 ========================
 Please use a logging facade in your code
