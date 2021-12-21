@@ -33,9 +33,9 @@
     <category rdf:resource="http://projects.apache.org/category/library" />
     <release>
       <Version>
-        <name>Apache log4j 1.3.0.b11529</name>
+        <name>Apache log4j 1.3.0.b1201528003-SNAPSHOT</name>
         <created>2021-12-21</created>
-        <revision>1.3.0.b11529</revision>
+        <revision>1.3.0.b1201528003-SNAPSHOT</revision>
       </Version>
     </release>
     <repository>
