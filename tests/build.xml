@@ -153,6 +153,7 @@
   <target name="clean">
     <delete dir="./classes/" />
     <delete dir="./output/" />
+    <delete dir="./temp/" />
   </target>
 
   <!-- ================================================================= -->
